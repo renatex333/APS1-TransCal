@@ -60,8 +60,8 @@ def importa(entradaNome):
     import xlrd
     import pandas as pd
     
-    # arquivo = xlrd.open_workbook(entradaNome)
-    arquivo = pd.read_excel(entradaNome, engine='openpyxl')
+    arquivo = xlrd.open_workbook(entradaNome)
+    # arquivo = pd.read_excel(entradaNome, engine='openpyxl')
     
     ################################################## Ler os nos
     nos = arquivo.sheet_by_name('Nos')
