@@ -58,8 +58,10 @@ def importa(entradaNome):
     
     import numpy as np
     import xlrd
+    import pandas as pd
     
-    arquivo = xlrd.open_workbook(entradaNome)
+    # arquivo = xlrd.open_workbook(entradaNome)
+    arquivo = pd.read_excel(entradaNome, engine='openpyxl')
     
     ################################################## Ler os nos
     nos = arquivo.sheet_by_name('Nos')
