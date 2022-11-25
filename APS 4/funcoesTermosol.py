@@ -93,7 +93,7 @@ def importa(entradaNome):
     
     ################################################## Ler as cargas
     carg = arquivo.sheet_by_name('Carregamento')
-    
+ 
     # Numero de cargas
     nc = int(carg.cell(1,4).value)
                  
@@ -101,9 +101,9 @@ def importa(entradaNome):
     F = np.zeros((nn*2,1))
     
     for c in range(nc):
-        no = carg.cell(c+1,0).value
-        xouy = carg.cell(c+1,1).value
-        GDL = int(no*2-(2-xouy)) 
+        no = int(carg.cell(c+1,0).value)
+        xouy = int(carg.cell(c+1,1).value)
+        GDL = no*2 - (2 - xouy)
         F[GDL-1,0] = carg.cell(c+1,2).value
          
     ################################################## Ler restricoes
@@ -116,9 +116,9 @@ def importa(entradaNome):
     R = np.zeros((nr,1))
     
     for c in range(nr):
-        no = restr.cell(c+1,0).value
-        xouy = restr.cell(c+1,1).value
-        GDL = no*2-(2-xouy) 
+        no = int(restr.cell(c+1,0).value)
+        xouy = int(restr.cell(c+1,1).value)
+        GDL = no*2 - (2 - xouy) 
         R[c,0] = GDL-1
 
 
@@ -126,7 +126,7 @@ def importa(entradaNome):
 
 def geraSaida(nome,Ft,Ut,Epsi,Fi,Ti):
     nome = nome + '.txt'
-    f = open("saida.txt","w+")
+    f = open(nome,"w+")
     f.write('Reacoes de apoio [N]\n')
     f.write(str(Ft))
     f.write('\n\nDeslocamentos [m]\n')
